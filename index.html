@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartPath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <h1>¿Qué quieres aprender?</h1>
+  <p class="lead">Cuéntanos tu meta y SmartPath te recomienda los cursos para empezar.</p>
+
+  <form id="formulario">
+    <label for="mensaje">Tu consulta</label>
+    <textarea id="mensaje" required placeholder="Quiero aprender a crear páginas web"></textarea>
+    <button type="submit" id="enviar">Buscar cursos</button>
+  </form>
+
+  <p id="estado" role="status" aria-live="polite"></p>
+
+  <section id="resultado" hidden>
+    <p class="respuesta" id="respuesta"></p>
+    <ul class="ruta" id="cursos"></ul>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

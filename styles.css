@@ -1,0 +1,98 @@
+:root {
+  --paper: #f6f8fb;
+  --surface: #ffffff;
+  --ink: #16213a;
+  --muted: #5d6882;
+  --line: #d5dbe7;
+  --path: #2f5bea;
+  --error: #b3261e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121828;
+    --surface: #1a2236;
+    --ink: #eef1f8;
+    --muted: #9aa6c2;
+    --line: #2f3a57;
+    --path: #7b9cff;
+    --error: #ff8a80;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  padding: 4rem 1.25rem 5rem;
+}
+main { max-width: 38rem; margin: 0 auto; }
+h1 {
+  font-size: clamp(2.25rem, 7vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.75rem;
+}
+.lead { color: var(--muted); margin: 0 0 2rem; }
+label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+textarea {
+  width: 100%;
+  min-height: 7rem;
+  resize: vertical;
+  padding: 0.875rem 1rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+}
+textarea:focus-visible, button:focus-visible {
+  outline: 3px solid var(--path);
+  outline-offset: 2px;
+}
+button {
+  margin-top: 0.875rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--path);
+  border: 0;
+  border-radius: 10px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+}
+@media (prefers-color-scheme: dark) { button { color: #0d1426; } }
+button:disabled { opacity: 0.6; cursor: progress; }
+#estado { margin-top: 1.5rem; color: var(--muted); }
+#estado.error { color: var(--error); }
+#resultado { margin-top: 2.5rem; }
+.respuesta { margin: 0 0 2rem; white-space: pre-wrap; }
+.ruta { list-style: none; margin: 0; padding: 0 0 0 1.75rem; position: relative; }
+.ruta::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem; top: 0.6rem; bottom: 0.6rem;
+  width: 2px;
+  background: var(--path);
+}
+.ruta li { position: relative; padding-bottom: 1.5rem; }
+.ruta li:last-child { padding-bottom: 0; }
+.ruta li::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem; top: 0.4rem;
+  width: 0.95rem; height: 0.95rem;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 3px solid var(--path);
+}
+.titulo { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.01em; }
+.nivel { color: var(--path); font-weight: 600; margin-left: 0.5rem; font-size: 0.95rem; }
+.descripcion { margin: 0.15rem 0 0; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) {
+  #resultado:not([hidden]) { animation: aparece 0.3s ease-out; }
+  @keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
+}
